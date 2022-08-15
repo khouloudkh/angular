@@ -15,10 +15,6 @@ export class UserProfileComponent implements OnInit {
     photo : 'https://randomuser.me/api/portraits/lego/2.jpg'
   };
 
-  quoterecu(quote:string) {
-    this.User.quote = quote;
-  }
-
   displayAge:boolean=false;
 
   constructor() { }
@@ -26,8 +22,6 @@ export class UserProfileComponent implements OnInit {
   toggle(){
     this.displayAge=!this.displayAge;
   }
-
-
 
   ngOnInit(): void {
 

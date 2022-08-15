@@ -6,12 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AbcStringComponent } from './components/abc-string/abc-string.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MenuComponent } from './components/menu/menu.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AbcStringComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SignUpComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
