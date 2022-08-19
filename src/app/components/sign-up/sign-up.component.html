@@ -1,1 +1,92 @@
-<p>sign-up works!</p>
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+  <div>
+    <strong><label for="firstname">firstname</label></strong>
+    <br />
+    <input
+      name="firstname"
+      type="text"
+      required
+      minlength="3"
+      maxlength="15"
+      [(ngModel)]="model.firstname"
+      #firstname="ngModel"
+    />
+  </div>
+  <!-- Message d'erreurs -->
+  <div *ngIf="firstname.errors">
+    <span *ngIf="firstname.errors?.['required'] && myForm.submitted">
+      Le prénom est requis
+    </span>
+    <span *ngIf="firstname.errors?.['minlength'] && myForm.submitted">
+      Le prénom doit comporter au moins 3 caractères
+    </span>
+    <span *ngIf="firstname.errors?.['maxlength'] && myForm.submitted">
+      Le prénom ne doit pas dépasser 15 caractères
+    </span>
+  </div>
+  <div>
+    <strong><label for="lastname">lastname</label></strong>
+    <br />
+    <input
+      name="lastname"
+      type="text"
+      required
+      minlength="3"
+      maxlength="15"
+      [(ngModel)]="model.lastname"
+      #lastname="ngModel"
+    />
+  </div>
+  <!-- Message d'erreurs -->
+  <div *ngIf="lastname.errors">
+    <span *ngIf="lastname.errors?.['required'] && myForm.submitted">
+      Le nom est requis
+    </span>
+    <span *ngIf="lastname.errors?.['minlength'] && myForm.submitted">
+      Le nom doit comporter au moins 3 caractères
+    </span>
+    <span *ngIf="lastname.errors?.['maxlength'] && myForm.submitted">
+      Le nom ne doit pas dépasser 15 caractères
+    </span>
+  </div>
+  <div>
+    <strong><label for="password">password</label></strong>
+    <br />
+    <input
+      name="password"
+      type="text"
+      required
+      [(ngModel)]="model.password"
+      #password="ngModel"
+    />
+  </div>
+  <!-- Message d'erreurs -->
+  <div *ngIf="password.errors">
+    <span *ngIf="password.errors?.['required'] && myForm.submitted">
+      Le password est requis
+    </span>
+  </div>
+  <div>
+    <strong><label for="mail">mail</label></strong>
+    <br />
+    <input
+      name="mail"
+      type="email"
+      [(ngModel)]="model.mail"
+      #mail="ngModel"
+      required
+      email
+    />
+  </div>
+  <!-- Message d'erreurs -->
+  <div *ngIf="mail.errors">
+    <span *ngIf="mail.errors?.['required'] && myForm.submitted">
+      Le e-mail est requis
+    </span>
+    <span *ngIf="mail.errors?.['email'] && myForm.submitted">
+      L'adresse email doit être valide
+    </span>
+  </div>
+  <br />
+  <button type="submit">Sauvegarder</button>
+</form>
